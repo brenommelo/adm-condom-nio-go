@@ -14,6 +14,8 @@ go get -u github.com/swaggo/gin-swagger
 go get -u github.com/swaggo/files
 swag init
 
+go install github.com/pressly/goose/v3/cmd/goose@latest
+
 ESTRUTURA
     config
         logger (goportunit)
