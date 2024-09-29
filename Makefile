@@ -1,11 +1,8 @@
 build:
-	@go build -o bin/jwtauth.exe
+	@go build -o bin/condominio.exe ./cmd
 
 run: build
-	@CompileDaemon --build="go build -o ./bin/jwtauth.exe" --command="./bin/jwtauth.exe"
-
-br: build
-	@./bin/jwtauth.exe
+	@CompileDaemon --build="go build -o bin/condominio.exe ./cmd" --command="./bin/condominio.exe"
 
 test:
 	@go test -v ./...
