@@ -49,7 +49,13 @@ func Login(c *gin.Context) {
 		return
 	}
 
-	c.SetSameSite(http.SameSiteLaxMode)
-	c.SetCookie("Authorization", jwtToken, 3600, "", "", false, true)
-	utils.WriteJSONResponse(c, http.StatusAccepted, "Login realizado com sucesso", user)
+	// c.SetSameSite(http.SameSiteLaxMode)
+	// c.SetCookie("Authorization", jwtToken, 3600, "", "", false, true)
+
+	type response struct {
+		Authorization string
+	}
+
+	resp := response{Authorization: jwtToken}
+	utils.WriteJSONResponse(c, http.StatusAccepted, "Login realizado com sucesso", resp)
 }
