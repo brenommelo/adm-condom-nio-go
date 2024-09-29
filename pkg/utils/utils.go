@@ -2,7 +2,6 @@ package utils
 
 import (
 	"encoding/json"
-	"log"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -17,7 +16,7 @@ func ParseJsonRequest(r *http.Request, dst interface{}) error {
 func WriteErrorResponse(ctx *gin.Context, code int, msg string) {
 	// ctx.Header("value", "result")
 	ctx.JSON(code, gin.H{
-		"message":   msg,
+		"error":     msg,
 		"errorCode": code,
 	})
 }
@@ -34,7 +33,6 @@ func WriteJSONResponseMarshal(w http.ResponseWriter, statusCode int, data interf
 	dat, err := json.Marshal(data)
 
 	if err != nil {
-		log.Println("error to marshal data: %v", data)
 		w.WriteHeader(500)
 		return
 	}

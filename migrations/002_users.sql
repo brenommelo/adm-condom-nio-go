@@ -1,10 +1,14 @@
 -- +goose Up
 CREATE TABLE admin.users (
-    id UUID PRIMARY KEY,
+    id bigserial PRIMARY KEY,
     created_at TIMESTAMP NOT NULL,
-    updated_at TIMESTAMP NOT NULL,
-    name TEXT NOT NULL
+    deleted_at TIMESTAMP,
+    updated_at TIMESTAMP,
+    first_name TEXT NOT NULL,
+    last_name TEXT NOT NULL,
+    email TEXT NOT NULL,
+    password TEXT NOT NULL
 );
 
 -- +goose Down
-DROP TABLE users;
+DROP TABLE admin.users;

@@ -15,7 +15,7 @@ migrate-up:
 
 # Target para reverter a última migração
 migrate-down:
-	goose -dir $(GOOSE_DIR) postgres "$(DB_URL)" down
+	goose -dir $(GOOSE_DIR) postgres "$(DB_URL)" down $(STEPS)
 
 # Target para exibir o status das migrações
 migrate-status:
